@@ -2,7 +2,7 @@
 GPU CUDA Miner for Bismuth.
 
 Install instructions (Linux):
-* Install Ubuntu 20.04 server on a PC with at least one Nvidia GPU, memory requirement on GPU at least 1075MiB.
+* Install Ubuntu 20.04 **server** on a PC with at least one Nvidia GPU, memory requirement on GPU at least 1075MiB.
 * Boot into the new server and do the following
 ```sudo apt update```
 ```sudo apt upgrade```
@@ -28,3 +28,7 @@ Install instructions (Linux):
 
 
 Note that the pool will use the Bismuth address in the node wallet, found in the file wallet.der. If you want to solo mine, you can mine directly to this address by editing the file miner.txt and make the miner_address equal to the address in wallet.der. In this case, you can also edit min_payout in pool.txt to a large number to prevent payout transactions from the pool.
+
+Install instructions (Ubuntu 20.04 **Desktop** ISO):
+If you want to install kbkminer on the Ubuntu 20.04 Desktop edition, instead of the Server edition, use the following minor modifications instead:
+* ```sudo apt install nvidia-driver-470``` followed by ```sudo apt install git```
