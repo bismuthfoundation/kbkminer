@@ -63,7 +63,7 @@ Install instructions (Ubuntu 18.04 **Desktop** ISO):
 * ```cd ~``` ```git clone https://github.com/pybind/pybind11.git```
 * ```cd pybind11``` ```cmake .``` ```make``` ```sudo make install```
 * ```cd ~``` ```git clone https://github.com/Bismuthfoundation/kbkminer.git```
-* ```cd kbkminer``` ```chmod u+x``` mycompile.sh``` ```./mycompile.sh```
+* ```cd kbkminer``` ```chmod u+x mycompile.sh``` ```./mycompile.sh```
 * Edit miner.txt to use your own miner_address
 * ```cp optihash.py ../Bismuth``` ```cp miner.txt ../Bismuth``` ```cp bis.so ../Bismuth```
 * Do not start the miner before the ledger is fully synced. The variable last_block_ago should be less than 300 seconds. Check with ```cd ~/Bismuth``` ```python3 commands.py statusget```
