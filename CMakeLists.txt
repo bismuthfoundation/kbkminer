@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 find_package(CUDA)
-find_package(PythonLibs 3.5 REQUIRED)
+find_package(PythonInterp REQUIRED)
+find_package(PythonLibs 3.8 REQUIRED)
 
 include_directories(${PYTHON_INCLUDE_DIRS})
 
