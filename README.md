@@ -1,7 +1,7 @@
 # kbkminer
 GPU CUDA Miner for Bismuth.
 
-Install instructions (Linux):
+### Install instructions (Ubuntu Linux 20.04 Server):
 * Install Ubuntu 20.04 **server** on a PC with at least one Nvidia GPU, memory requirement on GPU at least 1075MiB.
 * Boot into the new server and do the following
 ```sudo apt update```
@@ -26,14 +26,11 @@ Install instructions (Linux):
 * Do not start the miner before the ledger is fully synced. The variable last_block_ago should be less than 300 seconds. Check with ```cd ~/Bismuth``` ```python3 commands.py statusget```
 * ```cd ~/Bismuth``` ```screen -mS miner python3 optihash.py``` You can press ```Ctrl-A d```to detach from the miner session, and ```screen -r miner``` to go back.
 
-
-Note that the pool will use the Bismuth address in the node wallet, found in the file wallet.der. If you want to solo mine, you can mine directly to this address by editing the file miner.txt and make the miner_address equal to the address in wallet.der. In this case, you can also edit min_payout in pool.txt to a large number to prevent payout transactions from the pool.
-
-Install instructions (Ubuntu 20.04 **Desktop** ISO):
+### Install instructions (Ubuntu 20.04 **Desktop** ISO):
 If you want to install kbkminer on the Ubuntu 20.04 Desktop edition, instead of the Server edition, use the following minor modifications instead:
 * ```sudo apt install nvidia-driver-470``` followed by ```sudo apt install git```
 
-Install instructions (Ubuntu 18.04 **Desktop** ISO):
+### Install instructions (Ubuntu 18.04 **Desktop** ISO):
 * Install Ubuntu 18.04 desktop on a PC with at least one Nvidia GPU, memory requirement on GPU at least 1075MiB.
 * Boot into the new server and do the following ```sudo apt update``` ```sudo apt upgrade``` ```sudo reboot```
 * ```sudo apt install build-essential dkms freeglut3 freeglut3-dev libxi-dev libxmu-dev```
@@ -69,3 +66,37 @@ Install instructions (Ubuntu 18.04 **Desktop** ISO):
 * Do not start the miner before the ledger is fully synced. The variable last_block_ago should be less than 300 seconds. Check with ```cd ~/Bismuth``` ```python3 commands.py statusget```
 * ```cd ~/Bismuth``` ```screen -mS miner python3 optihash.py``` You can press Ctrl-A dto detach from the miner session, and screen -r miner to go back.
 
+
+### Notes
+
+The pool will use the Bismuth address in the node wallet, found in the file `wallet.der`. If you want to solo mine, you can mine directly to this address by editing the file `miner.txt` and make the miner_address equal to the address in `wallet.der`. In this case, you can also edit min_payout in pool.txt to a large number to prevent payout transactions from the pool.
+
+#### GPU Architecture Configuration:
+
+- If you are using Nvidia `RTX 3060`, `RTX 3070`, `RTX 3080` or `RTX 3090` GPUs, you need to update the `CMakeLists.txt` file in the kbkminer directory before compiling:
+
+```
+# Set the architecture of your CUDA card (update to compute capability 8.6)
+set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-gencode=arch=compute_86,code=sm_86)
+```
+
+- The NVIDIA `RTX 4090` is based on the newer Ada Lovelace architecture, which has a different compute capability of 8.9. To optimize CUDA settings for this card, you should update the CUDA_NVCC_FLAGS to reflect the compute capability 8.9.
+
+Here's how the setting should look for the `RTX 4090`:
+```
+# Set the architecture of your CUDA card (compute capability 8.9 for RTX 4090)
+set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-gencode=arch=compute_89,code=sm_89)
+```
+#### Pool Configuration:
+When running the pool `optipoolware.py`, try adjusting the `mine_diff` setting in `pool.txt` to find the optimal value.
+
+Example value:
+```
+mine_diff=84
+```
+
+#### Successful testing environments:
+- Ubuntu 18.04, Ubuntu 20.04, Ubuntu 22.04
+- Nvidia driver version 470, 550
+- CUDA version 12.4
+- Nvidia cuda toolkit V10.1.243 and V11.5.119
