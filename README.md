@@ -100,3 +100,20 @@ mine_diff=84
 - Nvidia driver version 470, 550
 - CUDA version 12.4
 - Nvidia cuda toolkit V10.1.243 and V11.5.119
+
+### Graphics Cards Hashrate Statistics
+#### Bismuth Mining Algorithm
+A custom GPU-based SHA-224 mining algorithm for the Bismuth cryptocurrency.
+
+#### Miner Software
+- kbkminer
+  
+#### Hashrates for Supported Graphics Cards
+
+Below are the hashrates achieved using kbkminer on various NVIDIA graphics cards:
+| Graphics Card                               | Hashrate (MH/s) |
+|---------------------------------------------|-----------------|
+| NVIDIA GeForce RTX 3060 Laptop              | 930.00          |
+| NVIDIA GeForce RTX 3060 Ti Founders Edition | 1500.00         |
+| NVIDIA GeForce RTX 3070                     | 1800.00         |
+| NVIDIA PNY GeForce RTX 4070 Super           | 3000.00         |
