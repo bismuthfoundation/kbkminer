@@ -103,7 +103,7 @@ mine_diff=84
 
 ### Graphics Cards Hashrate Statistics
 #### Bismuth Mining Algorithm
-A custom GPU-based SHA-224 mining algorithm for the Bismuth cryptocurrency.
+A custom **GPU-based SHA-224** mining algorithm for the Bismuth cryptocurrency.
 
 #### Miner Software
 - kbkminer
@@ -116,4 +116,8 @@ Below are the hashrates achieved using kbkminer on various NVIDIA graphics cards
 | NVIDIA GeForce RTX 3060 Laptop              | 930.00          |
 | NVIDIA GeForce RTX 3060 Ti Founders Edition | 1500.00         |
 | NVIDIA GeForce RTX 3070                     | 1800.00         |
+| NVIDIA GeForce RTX 3090                     | 3100.00         |
 | NVIDIA PNY GeForce RTX 4070 Super           | 3000.00         |
+| NVIDIA GeForce RTX 4090                     | 7000.00         |
+
+The table provides an indication of the achievable hashrate with the listed GPUs.
